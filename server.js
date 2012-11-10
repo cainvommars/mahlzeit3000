@@ -1,7 +1,24 @@
 var http = require('http');
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World\n');
-}).listen(8000);
+var express = require('express');
 
-console.log('Server running at http://0.0.0.0:8000/');
+var app = express();
+
+app.configure(function() {
+  app.use(express.static(__dirname + '/public'));
+  app.use(express.bodyParser());
+  app.use(express.methodOverride());
+  app.use(app.router);
+  app.set('view options', {
+      layout: false
+  });
+
+  app.set('view engine', 'hbs');
+});
+
+app.get('/', function(req, res) {
+  res.render('index', {});
+})
+
+app.listen(3000)
+
+console.log('Server running at http://0.0.0.0:3000/');
