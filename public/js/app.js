@@ -41,8 +41,8 @@ $(function() {
         time: inviteTime.getTime(),
         title: $('#title').val()
       }
-    }).done(function(msg) {
-        console.log(msg);
+    }).done(function(response) {
+        window.location.href = 'event/' + response.id;
       });
   });
   var inviteTime;
