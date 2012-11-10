@@ -1,5 +1,6 @@
 var Twitter = require('../lib/twitter');
 ev = require('../lib/event'),
+fo = require('../lib/follower'),
 crypto = require('crypto');
 
 var OAuth = require('oauth').OAuth;
@@ -91,13 +92,32 @@ module.exports = function(db)
         req.session.oauth.access_token,
         req.session.oauth.access_token_secret
       );
-      
-      twit.getFollowers(function(users) {
-        res.render('index', {
-          screen_name: req.session.twitter.screen_name,
-          users: JSON.stringify(users)
-        });
+
+      fo.Follower(db).load(req.session.twitter.user_id, function(err, users) {
+        console.dir(err);
+        console.dir(users);
+        if (!users) {
+          console.log('LOADING FOLLOWERS');
+        
+          twit.getFollowers(function(users) {
+            fo.Follower(db).store(req.session.twitter.user_id, users, function() {
+              res.render('index', {
+                screen_name: req.session.twitter.screen_name,
+                users: JSON.stringify(users)
+              });
+            });
+          });
+        
+        } else {
+          console.log('USING CACHED FOLLOWERS');
+          res.render('index', {
+            screen_name: req.session.twitter.screen_name,
+            users: JSON.stringify(users)
+          });
+        }
       });
+
+      
     },
 
     /** */
