@@ -41,7 +41,7 @@ $(function() {
         time: inviteTime
       }
     }).done(function(msg) {
-        console(msg);
+        console.log(msg);
       });
   });
   var inviteTime;
@@ -54,9 +54,9 @@ $(function() {
     var date = new Date();
     date.setHours(hours, minutes, 0, 0);
     $('.time').off('scroll', setScrollListener);
-    slider.scrollLeft = 160 + position * 4;
-    setTimeout(function() {
+    slider.scrollLeft = position * 40;
 
+    setTimeout(function() {
       $('.time').on('scroll', setScrollListener);
     }, 10)
     inviteTime = date;
