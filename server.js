@@ -32,6 +32,8 @@ app.get('/auth/twitter/callback', routes.auth.twitter.callback);
 app.post('/post', routes.post);
 app.get('/logout', routes.logout);
 
+console.dir(process.env)
+
 app.listen(3000);
 
 console.log('Server running at http://0.0.0.0:3000/');

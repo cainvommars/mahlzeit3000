@@ -1,9 +1,8 @@
-
 // SECRET = require('secret-strings').EXPRESS_OAUTH_SAMPLE;
 // Edit below.
 var SECRET = {
-  CONSUMER_KEY: 'mykey',
-  CONSUMER_SECRET: 'mysecret',
+  CONSUMER_KEY: process.env.TWITTER_KEY,
+  CONSUMER_SECRET: process.env.TWITTER_SECRET
 };
 
 var OAuth  = require('oauth').OAuth;
