@@ -1,5 +1,6 @@
-var express = require('express')
-routes = require('./routes')
+var express = require('express'),
+routes = require('./routes'),
+db = require('./lib/db');
 
 var app = express();
 
@@ -25,15 +26,18 @@ app.configure('production', function() {
   app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
-app.get('/login', routes.login);
-app.get('/auth/twitter', routes.auth.twitter);
-app.get('/auth/twitter/callback', routes.auth.twitter.callback);
-app.post('/post', routes.post);
-app.get('/logout', routes.logout);
+db.start('var/data', function(err, db) {
+  var handlers = routes(db);
 
-console.dir(process.env)
+  app.get('/', handlers.index);
+  app.get('/login', handlers.login);
+  app.get('/auth/twitter', handlers.auth.twitter);
+  app.get('/auth/twitter/callback', handlers.auth.twitter_callback);
+  app.get('/logout', handlers.logout);
+  app.get('/event/:id?', handlers.event);
+  app.post('/event', handlers.create_event);
 
-app.listen(3000);
+  app.listen(3000);
+});
 
 console.log('Server running at ' + process.env.HOST);
