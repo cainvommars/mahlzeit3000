@@ -117,7 +117,7 @@ module.exports = function(db)
       ev.Event(db).retreive(req.params.id, function(err, data) {
         console.dir(data);
         var time = new Date(+data.time);
-        data.time = time.getHours() + ':' + time.getMinutes()
+        data.time = time.getHours() + ':' + time.getMinutes();
         res.render('event', {event: data});
       });
     },
@@ -140,6 +140,6 @@ module.exports = function(db)
       ev.Event(db).create(event, function(err, data) {
         res.send(data);
       });
-    },
+    }
   }
 }
