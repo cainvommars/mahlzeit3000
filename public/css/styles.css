@@ -3,7 +3,8 @@ body {
   font-size: 20px;
   background: #e8e6d7;
 }
-*{
+
+* {
   box-sizing: border-box;
 }
 
@@ -31,22 +32,23 @@ ul {
   margin-bottom: 4px;
 }
 
-.time:first-child li{
+.time:first-child li {
   width: 60px;
   text-align: center;
   margin-left: 40px;
   font-size: 30px;
 }
 
-.time:first-child li:first-child{
+.time:first-child li:first-child {
   text-align: center;
   margin-left: 135px;
 }
 
-.time:not(:first-child){
+.time:not(:first-child) {
   padding: 10px 5px;
   margin-top: 10px;
 }
+
 .time:after {
   content: ' ';
   border: solid 1px;
@@ -65,7 +67,7 @@ ul {
   width: 40px;
 }
 
-img{
+img {
   width: 30px;
   height: 30px;
   border-radius: 3px;
@@ -83,8 +85,8 @@ img{
 }
 
 .user ul:not(:first-child) {
-  -webkit-column-width:30px;
-  -webkit-column-gap:3px;
+  -webkit-column-width: 30px;
+  -webkit-column-gap: 3px;
   height: 105px;
   padding: 0 5px;
 }
@@ -99,12 +101,26 @@ input, button {
   padding: 10px 5px;
 }
 
-.user input{
+.user input {
   width: 100%;
 }
-
 
 i {
   font-size: 15px;
   font-style: normal;
+}
+
+.invites li {
+  position: relative;
+}
+
+.invites button {
+  position: absolute;
+  background: red;
+  width: 15px;
+  height: 15px;
+  right: -5px;
+  top: -5px;
+  border: none;
+  padding: 0;
 }

@@ -1,5 +1,5 @@
 var express = require('express')
-  routes = require('./routes')
+routes = require('./routes')
 
 var app = express();
 
@@ -11,17 +11,17 @@ app.configure(function() {
   app.use(express.session({ secret: process.env.SESSION_SECRET }));
   app.use(app.router);
   app.set('view options', {
-      layout: 'layout'
+    layout: 'layout'
   });
   app.set('views', __dirname + '/views');
   app.set('view engine', 'hbs');
 });
 
-app.configure('development', function(){
+app.configure('development', function() {
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
-app.configure('production', function(){
+app.configure('production', function() {
   app.use(express.errorHandler());
 });
 
