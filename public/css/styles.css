@@ -203,10 +203,24 @@ i {
 
 .friends-list li:last-child {
   border-bottom: 1px solid #dddbd3;
-
 }
 
 .join {
   border: lime 3px double;
 }
 
+.ready {
+  overglow: hidden;
+}
+.ready #invite {
+  float: right;
+}
+footer li {
+  display: inline;
+  padding: 3px;
+  font-size: 15px;
+}
+
+footer a {
+  color: gray;
+}
