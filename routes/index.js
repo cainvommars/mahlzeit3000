@@ -1,3 +1,5 @@
+var twitter = require('twitter');
+
 // SECRET = require('secret-strings').EXPRESS_OAUTH_SAMPLE;
 // Edit below.
 var SECRET = {
@@ -69,8 +71,35 @@ exports.auth.twitter.callback = function(req, res, next){
 
 exports.index = function (req, res) {
   if(req.session.oauth && req.session.oauth.access_token) {
-    res.render('index', {
-      screen_name: req.session.twitter.screen_name
+
+    twitter = require('twitter');
+    var twit = new twitter({
+      consumer_key: SECRET.CONSUMER_KEY,
+      consumer_secret: SECRET.CONSUMER_SECRET,
+      access_token_key: req.session.oauth.access_token,
+      access_token_secret: req.session.oauth.access_token_secret
+    });
+
+    twit.get('/followers/ids.json', {include_entities:true}, function(data) {
+      var ids = data.ids.join(',');
+      console.log(ids);
+      twit.post('/users/lookup.json?user_id=' + ids, {include_entities:true}, function(data) {
+        console.dir(data);
+        var users = data.map(function(user) {
+          return {
+            id:user.id,
+            screen_name:user.screen_name,
+            name:user.name,
+            image:user.profile_image_url
+          };
+        });
+        
+        console.dir(users);
+        res.render('index', {
+          screen_name: req.session.twitter.screen_name,
+          users: JSON.stringify(users)
+        });
+      });
     });
   } else {
     res.redirect("/login");
