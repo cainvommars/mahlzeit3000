@@ -4,7 +4,7 @@
 <ul>
   <li class="owner"><img src="{{event.owner.image}}" /></li>
   {{#each event.users}}
-  <li class="{{status}}"><img src="{{image}}" /></li>
+  <li class="{{status}} {{isViewer}}"><img src="{{image}}" /></li>
   {{/each}}
 </ul>
 {{#unless viewer.join}}
