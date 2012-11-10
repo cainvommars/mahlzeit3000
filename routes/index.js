@@ -7,14 +7,14 @@ var SECRET = {
   CONSUMER_SECRET: process.env.TWITTER_SECRET
 };
 
-var OAuth  = require('oauth').OAuth;
+var OAuth = require('oauth').OAuth;
 var oa = new OAuth(
     "https://twitter.com/oauth/request_token",
     "https://twitter.com/oauth/access_token", 
     SECRET.CONSUMER_KEY,
     SECRET.CONSUMER_SECRET,
     "1.0",
-    "http://mahlzeit3k.de:3000/auth/twitter/callback",
+    process.env.HOST + "/auth/twitter/callback",
     "HMAC-SHA1");
 
 exports.index = function (req, res) {

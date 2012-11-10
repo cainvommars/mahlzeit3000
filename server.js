@@ -8,7 +8,7 @@ app.configure(function() {
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.cookieParser());
-  app.use(express.session({ secret: 'mysecretsessionsecret' }));
+  app.use(express.session({ secret: process.env.SESSION_SECRET }));
   app.use(app.router);
   app.set('view options', {
       layout: 'layout'
