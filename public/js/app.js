@@ -47,14 +47,18 @@ $(function() {
   var inviteTime;
 
   function setTime() {
+    var itemwidth = 60;
     var slider = $('.time').get(0);
-    position = (parseInt((slider.scrollLeft) / 40));
+    position = (parseInt((slider.scrollLeft) / itemwidth));
     var hours = parseInt(position / 4) + 11;
     var minutes = (position % 4) * 15
     var date = new Date();
     date.setHours(hours, minutes, 0, 0);
     $('.time').off('scroll', setScrollListener);
-    slider.scrollLeft = position * 40;
+    slider.scrollLeft = position * itemwidth;
+
+    $('.time ul .active').removeClass('active');
+    $('.time ul').children(':nth-child(' + (position + 1) + ')').addClass('active');
 
     setTimeout(function() {
       $('.time').on('scroll', setScrollListener);

@@ -70,7 +70,14 @@ ul {
 }
 
 .time li {
-  width: 40px;
+  width: 60px;
+  padding: 0 5px;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+.time .active {
+  border: 1px solid red;
 }
 
 img {
