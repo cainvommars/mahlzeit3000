@@ -1,7 +1,10 @@
 body {
-  font-family: 'Arbutus Slab', sans-serif;
+  font-family: 'Karla', sans-serif;
   font-size: 20px;
-  background: url("/img/background.png");
+  /*background: url("/img/background.png");*/
+  background-color:white;
+  background-image: linear-gradient(90deg, rgba(200,0,0,.3) 50%, transparent 50%), linear-gradient(rgba(200,0,0,.3) 50%, transparent 50%);
+  background-size:50px 50px;
   margin: 0;
 }
 
@@ -13,20 +16,8 @@ body >* {
   width: 320px;
 }
 
-header {
-  background: #363636;
-  height: 30px;
-  margin-bottom: 10px;
-}
-header a {
-  background: url("/img/flag.png") no-repeat;
-  display: block;
-  width: 40px;
-  height: 42px;
-  position: relative;
-}
 
-header img {
+.logo {
   height: 40px;
   width: 40px;
 }
@@ -38,6 +29,15 @@ ul {
   position: relative;
   border-color: #000 transparent transparent transparent;
 
+}
+
+.event-area {
+  margin: 5px;
+  padding: 5px;
+  background: #f4eae0;
+  -moz-box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
 
 .row{
@@ -99,12 +99,6 @@ ul {
   border: 1px solid red;
 }
 
-img {
-  width: 30px;
-  height: 30px;
-  border-radius: 3px;
-  margin-right: 3px;
-}
 
 .user {
   overflow: auto;
@@ -128,7 +122,7 @@ input, button {
   border-top: solid 1px;
   display: block;
   background: transparent;
-  font-family: 'Marvel', sans-serif;
+  font-family: 'Karla', sans-serif;
   font-size: 20px;
   padding: 10px 5px;
 }
@@ -142,17 +136,41 @@ i {
   font-style: normal;
 }
 
-.invites li {
-  position: relative;
+.invites {
+  display: block;
 }
 
+.invites li {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid #D0cad0;
+  padding: 5px 2px 2px;
+}
+
+.invites img {
+  float: left;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  margin-right: 3px;
+}
+.invites p{
+  margin: -2px 0 0 0;
+  padding: 0;
+  font-size: 10px;
+}
+.invites p span{
+  display: block;
+  font-size: 18px;
+}
 .invites button {
   position: absolute;
   background: red;
   width: 15px;
   height: 15px;
-  right: -5px;
-  top: -5px;
+  right: 0;
+  top: 0;
   border: none;
   padding: 0;
   border: none;
