@@ -59,7 +59,6 @@ $(function() {
 
       $('.time').on('scroll', setScrollListener);
     }, 10)
-    console.log(date);
     inviteTime = date;
   }
 
