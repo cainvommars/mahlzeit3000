@@ -15,7 +15,8 @@
     "twitter": "0.1.18",
     "leveldb": "0.7.1",
     "hbs": ">=1.0.5",
-    "oauth": "0.9.8"
+    "oauth": "0.9.8",
+    "node.flow":"1.1.3"
   },
   "engines": {
     "node": "0.8.x"

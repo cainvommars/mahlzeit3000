@@ -1,4 +1,4 @@
-var twitter = require('twitter'),
+var Twitter = require('../lib/twitter');
   ev = require('../lib/event');
 
 var OAuth = require('oauth').OAuth;
@@ -22,9 +22,10 @@ module.exports = function(db)
   return {
     /** */
     login : function (req, res) {
-      if(req.session.oauth && req.session.oauth.access_token) {
-      } else {
+      if(!logged_in(req)) {
         res.render('login');
+      } else {
+        res.redirect('/');
       }
     },
 
@@ -57,7 +58,6 @@ module.exports = function(db)
                  req.session.oauth.access_token = oauth_access_token;
                  req.session.oauth.access_token_secret = oauth_access_token_secret;
                  req.session.twitter = results;
-                 console.dir(results);
                  res.redirect("/");
                }
              }
@@ -75,33 +75,16 @@ module.exports = function(db)
         return;
       }
 
-      twitter = require('twitter');
-      var twit = new twitter({
-        consumer_key: process.env.TWITTER_KEY,
-        consumer_secret: process.env.TWITTER_SECRET,
-        access_token_key: req.session.oauth.access_token,
-        access_token_secret: req.session.oauth.access_token_secret
-      });
-
-      twit.get('/followers/ids.json', {include_entities:true}, function(data) {
-        var ids = data.ids.slice(0, 100).join(',');
-        console.log(ids);
-        twit.post('/users/lookup.json?user_id=' + ids, {include_entities:true}, function(data) {
-          console.dir(data);
-          var users = data.map(function(user) {
-            return {
-              id:user.id,
-              screen_name:user.screen_name,
-              name:user.name,
-              image:user.profile_image_url
-            };
-          });
-
-          console.dir(users);
-          res.render('index', {
-            screen_name: req.session.twitter.screen_name,
-            users: JSON.stringify(users)
-          });
+      var twit = new Twitter(
+        req.session.oauth.access_token,
+        req.session.oauth.access_token_secret
+      );
+      
+      twit.getFollowers(function(users) {
+        console.dir(users);
+        res.render('index', {
+          screen_name: req.session.twitter.screen_name,
+          users: JSON.stringify(users)
         });
       });
     },
@@ -115,7 +98,6 @@ module.exports = function(db)
     /** */
     event : function(req, res) {
       ev.Event(db).retreive(req.params.id, function(err, data) {
-        console.dir(data);
         var time = new Date(+data.time);
         data.time = time.getHours() + ':' + time.getMinutes();
         res.render('event', {event: data});
@@ -138,6 +120,21 @@ module.exports = function(db)
       };
 
       ev.Event(db).create(event, function(err, data) {
+        
+        var twit = new Twitter(
+          req.session.oauth.access_token,
+          req.session.oauth.access_token_secret
+        );
+
+        var msg = "You were invited to: " +
+                  process.env.HOST + '/event/' +
+                  data.id +
+                  " . GO GO GO";
+
+        data.users.forEach(function(user) {
+          twit.sendDm(user.id, msg);
+        });
+
         res.send(data);
       });
     }
