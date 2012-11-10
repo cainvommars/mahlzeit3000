@@ -4,7 +4,7 @@ var twitter = require('twitter'),
 var OAuth = require('oauth').OAuth;
 var oa = new OAuth(
   "https://twitter.com/oauth/request_token",
-  "https://twitter.com/oauth/access_token", 
+  "https://twitter.com/oauth/access_token",
   process.env.TWITTER_KEY,
   process.env.TWITTER_SECRET,
   "1.0",
@@ -43,13 +43,13 @@ module.exports = function(db)
           }
         });
       },
-      
+
     /** */
       twitter_callback : function(req, res, next){
         if (req.session.oauth) {
           req.session.oauth.verifier = req.query.oauth_verifier;
           var oauth = req.session.oauth;
-          oa.getOAuthAccessToken(oauth.token, oauth.token_secret, oauth.verifier, 
+          oa.getOAuthAccessToken(oauth.token, oauth.token_secret, oauth.verifier,
              function(error, oauth_access_token, oauth_access_token_secret, results){
                if (error){
                  res.send("yeah something broke.");
@@ -70,7 +70,7 @@ module.exports = function(db)
     /** */
     index : function (req, res) {
 
-      if(! logged_in(req)) { 
+      if(! logged_in(req)) {
         res.redirect("/login");
         return;
       }
@@ -114,14 +114,10 @@ module.exports = function(db)
 
     /** */
     event : function(req, res) {
-
-      if(! logged_in(req)) { 
-        res.redirect("/login");
-        return;
-      }
-
       ev.Event(db).retreive(req.params.id, function(err, data) {
         console.dir(data);
+        var time = new Date(+data.time);
+        data.time = time.getHours() + ':' + time.getMinutes()
         res.render('event', {event: data});
       });
     },
@@ -129,7 +125,7 @@ module.exports = function(db)
     /** */
     create_event : function(req, res) {
 
-      if(! logged_in(req)) { 
+      if(! logged_in(req)) {
         res.redirect("/login");
         return;
       }
@@ -137,7 +133,7 @@ module.exports = function(db)
       var event = {
         users: req.body.users,
         title: req.body.title,
-        time: req.body.timestamp,
+        time: req.body.time,
         owner: req.session.twitter.user_id
       };
 
