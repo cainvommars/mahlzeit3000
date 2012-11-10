@@ -1,5 +1,5 @@
-var http = require('http');
-var express = require('express');
+var express = require('express')
+  routes = require('./routes')
 
 var app = express();
 
@@ -7,6 +7,8 @@ app.configure(function() {
   app.use(express.static(__dirname + '/public'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+  app.use(express.cookieParser());
+  app.use(express.session({ secret: 'mysecretsessionsecret' }));
   app.use(app.router);
   app.set('view options', {
       layout: false
@@ -15,10 +17,21 @@ app.configure(function() {
   app.set('view engine', 'hbs');
 });
 
-app.get('/', function(req, res) {
-  res.render('index', {});
-})
+app.configure('development', function(){
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+});
 
-app.listen(3000)
+app.configure('production', function(){
+  app.use(express.errorHandler());
+});
+
+app.get('/', routes.index);
+app.get('/login', routes.login);
+app.get('/auth/twitter', routes.auth.twitter);
+app.get('/auth/twitter/callback', routes.auth.twitter.callback);
+app.post('/post', routes.post);
+app.get('/logout', routes.logout);
+
+app.listen(3000);
 
 console.log('Server running at http://0.0.0.0:3000/');
