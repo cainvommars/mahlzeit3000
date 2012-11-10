@@ -132,7 +132,7 @@ module.exports = function(db)
                   " . GO GO GO";
 
         data.users.forEach(function(user) {
-          twit.sendDm(user.id, msg);
+          twit.sendDm(parseInt(user.id, 10), msg);
         });
 
         res.send(data);
