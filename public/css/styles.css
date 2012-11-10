@@ -135,3 +135,24 @@ i {
   top: -1px;
   font-size: 15px;
 }
+
+.friends-list li {
+  padding: 5px;
+  border-top: 1px solid #dddbd3;
+  border-right: 1px solid #dddbd3;
+  border-left: 1px solid #dddbd3;
+  background-color: #f3efe6;
+  background-image: url(/img/adduser.png), -webkit-gradient(linear, left top, left bottom, from(#fffeec), to(#f0e0e0)),; /* Safari 4+, Chrome */
+  background-image: url(/img/adduser.png), -webkit-linear-gradient(top, #fffeec, #f3efe6); /* Chrome 10+, Safari 5.1+, iOS 5+ */
+  background-image: url(/img/adduser.png),    -moz-linear-gradient(top, #fffeec, #f3efe6); /* Firefox 3.6-15 */
+  background-image: url(/img/adduser.png),      -o-linear-gradient(top, #fffeec, #ff3efe6); /* Opera 11.10-12.00 */
+  background-image: url(/img/adduser.png),         linear-gradient(to bottom, #fffeec, #f3efe6); /* Firefox 16+, IE10, Opera 12.50+ */
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.friends-list li:last-child {
+  border-bottom: 1px solid #dddbd3;
+
+}
+
