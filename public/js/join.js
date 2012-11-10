@@ -5,6 +5,7 @@ $(function() {
       url : "/event/" + button.data('event-id') + "/join/" + button.data('viewer-id'),
       type: "POST",
       success: function(res) {
+        $('.viewer').addClass('join')
         button.remove();
       }
     });
