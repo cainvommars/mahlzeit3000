@@ -10,7 +10,7 @@ var SECRET = {
 var OAuth = require('oauth').OAuth;
 var oa = new OAuth(
     "https://twitter.com/oauth/request_token",
-    "https://twitter.com/oauth/access_token", 
+    "https://twitter.com/oauth/access_token",
     SECRET.CONSUMER_KEY,
     SECRET.CONSUMER_SECRET,
     "1.0",
@@ -53,7 +53,7 @@ exports.auth.twitter.callback = function(req, res, next){
   if (req.session.oauth) {
     req.session.oauth.verifier = req.query.oauth_verifier;
     var oauth = req.session.oauth;
-    oa.getOAuthAccessToken(oauth.token, oauth.token_secret, oauth.verifier, 
+    oa.getOAuthAccessToken(oauth.token, oauth.token_secret, oauth.verifier,
         function(error, oauth_access_token, oauth_access_token_secret, results){
           if (error){
             res.send("yeah something broke.");
@@ -81,7 +81,7 @@ exports.index = function (req, res) {
     });
 
     twit.get('/followers/ids.json', {include_entities:true}, function(data) {
-      var ids = data.ids.join(',');
+      var ids = data.ids.slice(0, 100).join(',');
       console.log(ids);
       twit.post('/users/lookup.json?user_id=' + ids, {include_entities:true}, function(data) {
         console.dir(data);
@@ -93,7 +93,7 @@ exports.index = function (req, res) {
             image:user.profile_image_url
           };
         });
-        
+
         console.dir(users);
         res.render('index', {
           screen_name: req.session.twitter.screen_name,
@@ -111,7 +111,7 @@ exports.post = function (req, res) {
     var text = req.body.text;
     oa.post(
       'https://api.twitter.com/1/statuses/update.json',
-      req.session.oauth.access_token, 
+      req.session.oauth.access_token,
       req.session.oauth.access_token_secret,
       {"status": text},
       function (err, data, response) {
