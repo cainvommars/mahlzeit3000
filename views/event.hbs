@@ -1,7 +1,13 @@
+<h1>Hello {{viewer.screen_name}}</h1>
 <h1>{{event.title}}</h1>
 <time>{{event.time}}</time>
 <ul>
+  <li class="owner"><img src="{{event.owner.image}}" /></li>
   {{#each event.users}}
-  <li><img src="{{image}}"></li>
+  <li class="{{status}}"><img src="{{image}}" /></li>
   {{/each}}
 </ul>
+{{#unless viewer.join}}
+<button id="join" data-event-id="{{event.id}}" data-viewer-id="{{viewer.hash}}">Join</button>
+{{/unless}}
+<script src="/js/join.js"></script>

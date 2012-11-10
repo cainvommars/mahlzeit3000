@@ -34,8 +34,9 @@ db.start('var/data', function(err, db) {
   app.get('/auth/twitter', handlers.auth.twitter);
   app.get('/auth/twitter/callback', handlers.auth.twitter_callback);
   app.get('/logout', handlers.logout);
-  app.get('/event/:id?', handlers.event);
+  app.get('/event/:id?/:hash?', handlers.event);
   app.post('/event', handlers.create_event);
+  app.post('/event/:id?/join/:hash?', handlers.join_event);
 
   app.listen(3000);
 });

@@ -42,7 +42,7 @@ $(function() {
         title: $('#title').val()
       }
     }).done(function(response) {
-        window.location.href = 'event/' + response.id;
+        window.location.href = 'event/' + response.id + '/' + response.owner.hash;
       });
   });
   var inviteTime;

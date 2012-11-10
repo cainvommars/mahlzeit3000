@@ -1,5 +1,6 @@
 var Twitter = require('../lib/twitter');
-  ev = require('../lib/event');
+ev = require('../lib/event'),
+crypto = require('crypto');
 
 var OAuth = require('oauth').OAuth;
 var oa = new OAuth(
@@ -58,7 +59,18 @@ module.exports = function(db)
                  req.session.oauth.access_token = oauth_access_token;
                  req.session.oauth.access_token_secret = oauth_access_token_secret;
                  req.session.twitter = results;
-                 res.redirect("/");
+
+
+                 var twit = new Twitter(
+                   req.session.oauth.access_token,
+                   req.session.oauth.access_token_secret
+                 );
+                 
+                 twit.getUserInfo(parseInt(results.user_id, 10), function(user) {
+                   req.session.twitter.name = user.name;
+                   req.session.twitter.image = user.profile_image_url;
+                   res.redirect("/");
+                 });
                }
              }
           );
@@ -81,7 +93,6 @@ module.exports = function(db)
       );
       
       twit.getFollowers(function(users) {
-        console.dir(users);
         res.render('index', {
           screen_name: req.session.twitter.screen_name,
           users: JSON.stringify(users)
@@ -97,10 +108,37 @@ module.exports = function(db)
 
     /** */
     event : function(req, res) {
+      if (! req.params.hash) {
+        res.send('verpiss dich');
+        return;
+      }
+
+      var url_hash = req.params.hash;
+
       ev.Event(db).retreive(req.params.id, function(err, data) {
+        var viewer;
+        data.users.some(function(user) {
+          if (user.hash == url_hash) {
+            viewer = user;
+            return true;
+          }
+        });
+
+        if (! viewer) {
+          if (data.owner.hash == url_hash) {
+            viewer = data.owner;
+          } else {
+            res.send('verpiss dich');
+            return;
+          }
+        }
+
+        viewer.join = viewer.status == 'join';
+
         var time = new Date(+data.time);
         data.time = time.getHours() + ':' + time.getMinutes();
-        res.render('event', {event: data});
+        console.dir(data);
+        res.render('event', {event: data, viewer: viewer});
       });
     },
 
@@ -116,7 +154,13 @@ module.exports = function(db)
         users: req.body.users,
         title: req.body.title,
         time: req.body.time,
-        owner: req.session.twitter.user_id
+        owner: {
+          id: req.session.twitter.user_id,
+          screen_name: req.session.twitter.screen_name,
+          name: req.session.twitter.name,
+          image : req.session.twitter.image,
+          status : 'join',
+        }
       };
 
       ev.Event(db).create(event, function(err, data) {
@@ -126,17 +170,49 @@ module.exports = function(db)
           req.session.oauth.access_token_secret
         );
 
-        var msg = "You were invited to: " +
-                  process.env.HOST + '/event/' +
-                  data.id +
-                  " . GO GO GO";
-
         data.users.forEach(function(user) {
+          var msg = "You were invited to: " +
+                    process.env.HOST + '/event/' +
+                    data.id + "/" + user.hash +
+                    " . GO GO GO";
           twit.sendDm(parseInt(user.id, 10), msg);
         });
 
         res.send(data);
       });
+    },
+
+    join_event : function(req, res) {
+      if (! req.params.hash) {
+        res.send('verpiss dich');
+        return;
+      }
+
+      var url_hash = req.params.hash;
+
+      ev.Event(db).retreive(req.params.id, function(err, data) {
+        var viewer;
+        data.users.some(function(user) {
+          if (user.hash == url_hash) {
+            viewer = user;
+            return true;
+          }
+        });
+
+        if (! viewer) {
+          res.send('verpiss dich');
+          return;
+        }
+
+        viewer.status = "join";
+
+        ev.Event(db).update(data, function() {
+          var time = new Date(+data.time);
+          data.time = time.getHours() + ':' + time.getMinutes();
+          res.render('event', {event: data, viewer: viewer});
+        });
+      });
+    
     }
   }
 }
