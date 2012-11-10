@@ -15,7 +15,7 @@ $(function() {
     addToInvite(target.id)
   });
 
-  $('#invites').on('click', function(e) {
+  $('#invites button').on('click', function(e) {
     var target = $(e.target);
     var id = target.data('id');
     target.parent().remove();
