@@ -21,32 +21,37 @@ ul {
 
 }
 
-.row {
-  overflow: auto;
+.row{
   display: -webkit-box;
   display: -moz-box;
   display: -ms-box;
   display: box;
-  border-bottom: solid 1px;
-  padding: 5px;
-  margin-bottom: 4px;
 }
 
 .time:first-child li {
-  width: 60px;
   text-align: center;
   margin-left: 40px;
   font-size: 30px;
 }
 
-.time:first-child li:first-child {
-  text-align: center;
-  margin-left: 135px;
+.time li:first-child {
+  margin-left: 160px;
+}
+
+.time li:last-child {
+  padding-right: 160px;
 }
 
 .time:not(:first-child) {
   padding: 10px 5px;
   margin-top: 10px;
+}
+
+.time {
+  overflow-x: auto;
+  border-bottom: solid 1px;
+  padding: 5px;
+  margin-bottom: 4px;
 }
 
 .time:after {
