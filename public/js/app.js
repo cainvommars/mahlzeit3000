@@ -38,7 +38,8 @@ $(function() {
       url: "event",
       data: {
         users: invites,
-        time: inviteTime
+        time: inviteTime.getTime(),
+        title: $('#title').val()
       }
     }).done(function(msg) {
         console.log(msg);
