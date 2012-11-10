@@ -123,4 +123,15 @@ i {
   top: -5px;
   border: none;
   padding: 0;
+  border: none;
+  border-radius: 9px 9px 9px 30px;
+}
+
+.invites button:after {
+  content: '✕';
+  color: #fff;
+  position: absolute;
+  left: 4px;
+  top: -1px;
+  font-size: 15px;
 }

@@ -36,4 +36,4 @@ console.dir(process.env)
 
 app.listen(3000);
 
-console.log('Server running at http://0.0.0.0:3000/');
+console.log('Server running at ' + process.env.HOST);
