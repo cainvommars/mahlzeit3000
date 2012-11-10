@@ -11,9 +11,9 @@ app.configure(function() {
   app.use(express.session({ secret: 'mysecretsessionsecret' }));
   app.use(app.router);
   app.set('view options', {
-      layout: false
+      layout: 'layout'
   });
-
+  app.set('views', __dirname + '/views');
   app.set('view engine', 'hbs');
 });
 

@@ -11,14 +11,18 @@
     "url": "git@github.com:nko3/backensolo.git"
   },
   "dependencies": {
-      "express": ">=3.0.2",
-      "twitter": "0.1.18",
-      "leveldb": "0.7.1",
-      "hbs": ">=1.0.5",
-      "oauth": "0.9.8"
+    "express": ">=3.0.2",
+    "twitter": "0.1.18",
+    "leveldb": "0.7.1",
+    "hbs": ">=1.0.5"
+    "oauth": "0.9.8"
   },
   "engines": {
     "node": "0.8.x"
   },
-  "subdomain": "backensolo.nko3"
+  "subdomain": "backensolo.nko3",
+  "scripts": {
+    "start": "nodemon start",
+    "stop": "nodemon stop"
+  }
 }
