@@ -85,21 +85,17 @@ $(function() {
 
     if (!position) {
       position = (parseInt((slider.scrollLeft) / itemWidth));
+    } else {
+      slider.scrollLeft = position * itemWidth;
     }
 
     var hours = parseInt(position / 4) + 11;
     var minutes = (position % 4) * 15;
     var date = new Date();
     date.setHours(hours, minutes, 0, 0);
-    $('.time').off('scroll', setScrollListener);
-    slider.scrollLeft = position * itemWidth;
 
     $('.time ul .active').removeClass('active');
     $('.time ul').children(':nth-child(' + (position + 1) + ')').addClass('active');
-
-    setTimeout(function() {
-      $('.time').on('scroll', setScrollListener);
-    }, 10);
 
     inviteTime = date;
   }
