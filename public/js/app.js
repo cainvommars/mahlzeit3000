@@ -12,6 +12,11 @@ $(function() {
 
   $('#result').on('click li', function(e) {
     var target = e.target;
+
+    if (target.tagName != 'LI') {
+      target = target.parentNode;
+    }
+
     $(target).remove();
     addToInvite(target.id)
   });
