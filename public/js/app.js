@@ -1,5 +1,6 @@
 $(function() {
   var invites = [];
+  setTime(4);
   $('#search').on('keyup', function(e) {
     var keyCode = e.keyCode;
     if (keyCode >= 37 && keyCode <= 40) {
@@ -16,7 +17,6 @@ $(function() {
   });
 
   $('#invites').on('click', 'button', function(e) {
-    console.log(e);
     var target = $(e.target);
     var id = target.data('id');
     target.parent().remove();
@@ -34,6 +34,9 @@ $(function() {
   }
 
   $('#invite').on('click', function() {
+    if (!invites.length) {
+      return
+    }
     $.ajax({
       type: "POST",
       url: "event",
@@ -48,23 +51,29 @@ $(function() {
   });
   var inviteTime;
 
-  function setTime() {
-    var itemwidth = 60;
+  function setTime(position) {
+
+    var itemWidth = 60;
     var slider = $('.time').get(0);
-    position = (parseInt((slider.scrollLeft) / itemwidth));
+
+    if (!position) {
+      position = (parseInt((slider.scrollLeft) / itemWidth));
+    }
+
     var hours = parseInt(position / 4) + 11;
-    var minutes = (position % 4) * 15
+    var minutes = (position % 4) * 15;
     var date = new Date();
     date.setHours(hours, minutes, 0, 0);
     $('.time').off('scroll', setScrollListener);
-    slider.scrollLeft = position * itemwidth;
+    slider.scrollLeft = position * itemWidth;
 
     $('.time ul .active').removeClass('active');
     $('.time ul').children(':nth-child(' + (position + 1) + ')').addClass('active');
 
     setTimeout(function() {
       $('.time').on('scroll', setScrollListener);
-    }, 10)
+    }, 10);
+
     inviteTime = date;
   }
 
