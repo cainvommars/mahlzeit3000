@@ -40,10 +40,16 @@ leveldb.open('var/data',
   app.get('/auth/twitter', handlers.auth.twitter);
   app.get('/auth/twitter/callback', handlers.auth.twitter_callback);
   app.get('/logout', handlers.logout);
-  app.get('/event/:id?/:hash?', handlers.event);
+  app.get('/event/:id?', handlers.event);
   app.post('/event', handlers.create_event);
   app.get('/event/:id?/join/:hash?', handlers.join_event);
-  app.post('/event/:id?/join/:hash?', handlers.do_join_event);
+
+  app.post('/event/:id?/join/:hash?', 
+           function(req, res) {handlers.do_join_event(req,res,true)});
+
+  app.delete('/event/:id?/join/:hash?',
+             function(req, res) {handlers.do_join_event(req,res,false)});
+
   app.get('/followers', handlers.get_followers);
 
 

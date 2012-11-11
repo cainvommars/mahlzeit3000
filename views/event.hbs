@@ -1,19 +1,15 @@
-<img src="{{viewer.image}}" class="viewerImg"/>
-<p>Hello {{viewer.screen_name}}, your friend {{event.owner.screen_name}} wants to have a lunch today at
-  <time>{{event.time}}</time>
+<h1>{{event.title}}</h1>
+<p>
+  Lunchdate at <time>{{event.time}}</time>
   .
 </p>
-<p>Are you in?</p>
-<h1>{{event.title}}</h1>
-{{#unless viewer.join}}
-<button id="join" data-event-id="{{event.id}}" data-viewer-id="{{viewer.hash}}">Join</button>
-{{/unless}}
 
-Also invited:
+Audience:
 <ul class="user-list">
   {{#each event.users}}
-  <li class="{{status}} {{isViewer}}">
+  <li class="{{status}}">
     <img src="{{image}}"/>
+
     <p>{{name}}<span>{{screen_name}}</span></p>
   </li>
   {{/each}}

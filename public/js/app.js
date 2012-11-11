@@ -67,7 +67,7 @@ $(function() {
         title: $('#title').val()
       }
     }).done(function(response) {
-        window.location.href = 'event/' + response.id + '/' + response.owner.hash;
+        window.location.href = 'event/' + response.id;
       });
   });
 
