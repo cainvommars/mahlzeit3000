@@ -2,4 +2,5 @@
 *.swp
 /node_modules
 start.sh
+debug.sh
 .DS_Store
