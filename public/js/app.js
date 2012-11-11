@@ -84,7 +84,7 @@ $(function() {
     var slider = $('.time').get(0);
 
     if (!position) {
-      position = (parseInt((slider.scrollLeft) / itemWidth));
+      position = (parseInt( (30 +slider.scrollLeft) / itemWidth));
     } else {
       slider.scrollLeft = position * itemWidth;
     }
@@ -116,7 +116,7 @@ $(function() {
     selectedUser = remove(users, id);
     invites.push(selectedUser);
     $('#search').val('');
-    $('#invites').append('<li class="row"><img src="' + selectedUser.image + '"><p class="content"><span>' + selectedUser.name + '</span>@' + selectedUser.screen_name + '</p><button data-id="' + selectedUser.id + '"></button></li>')
+    $('#invites').append('<li class="row"><div><img src="' + selectedUser.image + '"></div><p class="content"><span>' + selectedUser.name + '</span>@' + selectedUser.screen_name + '</p><button data-id="' + selectedUser.id + '"></button></li>')
   }
 
   function remove(array, id) {
