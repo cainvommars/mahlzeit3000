@@ -337,6 +337,7 @@ footer a {
 .withIcon {
   padding-left: 35px;
   position: relative;
+  overflow: hidden;
 }
 
 .viewerImg {
