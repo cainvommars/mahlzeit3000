@@ -63,7 +63,7 @@ $(function() {
       url: "event",
       data: {
         users: invites,
-        time: inviteTime.getTime(),
+        time: inviteTime,
         title: $('#title').val()
       }
     }).done(function(response) {
@@ -90,14 +90,12 @@ $(function() {
     }
 
     var hours = parseInt(position / 4) + 11;
-    var minutes = (position % 4) * 15;
-    var date = new Date();
-    date.setHours(hours, minutes, 0, 0);
+    var minutes = ((position % 4) * 15) || '00';
 
     $('.time ul .active').removeClass('active');
     $('.time ul').children(':nth-child(' + (position + 1) + ')').addClass('active');
 
-    inviteTime = date;
+    inviteTime = hours + ':' + minutes;
   }
 
   function search(value) {

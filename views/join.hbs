@@ -7,8 +7,8 @@
 <h1>{{event.title}}</h1>
 {{#unless viewer.join}}
 <div class="ready row">
-    <button class="join_decline content" data-action="join" data-event-id="{{event.id}}" data-viewer-id="{{viewer.hash}}">Join</button>
     <button class="join_decline content" data-action="decline" data-event-id="{{event.id}}" data-viewer-id="{{viewer.hash}}">Decline</button>
+    <button class="join_decline content" data-action="join" data-event-id="{{event.id}}" data-viewer-id="{{viewer.hash}}">Join</button>
 </div>
 {{/unless}}
 
