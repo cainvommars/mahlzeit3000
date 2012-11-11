@@ -277,7 +277,7 @@ i {
   font-size: 10px;
 }
 
-.user-list p span {
+.user-list p span, .friends-list p {
   display: block;
   font-size: 15px;
 }
@@ -296,15 +296,13 @@ i {
   border-top: 1px solid #dddbd3;
   border-right: 1px solid #dddbd3;
   border-left: 1px solid #dddbd3;
-  background-color: #f3efe6;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#fffeec), to(#f0e0e0)),; /* Safari 4+, Chrome */
-  background-image: -webkit-linear-gradient(top, #fffeec, #f3efe6); /* Chrome 10+, Safari 5.1+, iOS 5+ */
-  background-image: -moz-linear-gradient(top, #fffeec, #f3efe6); /* Firefox 3.6-15 */
-  background-image: -o-linear-gradient(top, #fffeec, #ff3efe6); /* Opera 11.10-12.00 */
-  background-image: linear-gradient(to bottom, #fffeec, #f3efe6); /* Firefox 16+, IE10, Opera 12.50+ */
-  background-repeat: no-repeat;
-  background-position: right center;
+  background-color: #fffeec;
 }
+
+.friends-list li:hover {
+  background-color: #e6e4d6;
+}
+
 
 .friends-list p {
   margin: 0;

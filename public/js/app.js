@@ -104,7 +104,7 @@ $(function() {
       return regExp.test(user.name) || regExp.test(user.screen_name);
     })
       .map(function(user) {
-        return '<li id="' + user.id + '" class="row"><p class="content">' + user.name + '</p><i>' + user.screen_name + '</i></li>';
+        return '<li id="' + user.id + '" class="row"><p class="content">' + user.name + '</p><i>@' + user.screen_name + '</i></li>';
       });
     $('#result').html(result.join(''))
   }
