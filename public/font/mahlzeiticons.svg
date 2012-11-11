@@ -1,0 +1,44 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>
+Created by FontForge 20100429 at Sun Nov 11 13:06:54 2012
+ By root
+Copyright (C) 2012 by original authors @ fontello.com
+</metadata>
+<defs>
+<font id="mahlzeiticons" horiz-adv-x="364" >
+  <font-face 
+    font-family="mahlzeiticons"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1000"
+    panose-1="2 0 6 3 0 0 0 0 0 0"
+    ascent="850"
+    descent="-150"
+    bbox="14.9661 -110 1015 810"
+    underline-thickness="50"
+    underline-position="-100"
+    unicode-range="U+E700-1F554"
+  />
+<missing-glyph 
+d="M33 0v666h265v-666h-265zM66 33h199v600h-199v-600z" />
+    <glyph glyph-name=".notdef" 
+d="M33 0v666h265v-666h-265zM66 33h199v600h-199v-600z" />
+    <glyph glyph-name=".null" horiz-adv-x="0" 
+ />
+    <glyph glyph-name="nonmarkingreturn" horiz-adv-x="333" 
+ />
+    <glyph glyph-name="uniE700" unicode="&#xe700;" horiz-adv-x="1030" 
+d="M815 6v-106h-800v202q41 16 82 26q95 34 129 69q35 35 35 95q0 22 -23 48q-24 27 -31 74q-1 11 -23 25q-21 13 -25 61q0 32 14 38l4 4q-1 6 -3 19q-13 53 -8 95.5t39 85.5q46 58 160 58t160 -58t42 -112l-14 -88q18 -8 18 -42q-5 -55 -23 -60q-20 -5 -23 -26
+q-10 -46 -33 -73q-23 -28 -23 -49q0 -60 36 -95t130 -69q180 -65 180 -122zM865 400h150v-100h-150v-150h-100v150h-150v100h150v150h100v-150z" />
+    <glyph glyph-name="uniE724" unicode="&#xe724;" horiz-adv-x="530" 
+d="M442 677q73 -73 73 -177q0 -105 -62 -243q-63 -139 -126 -223l-62 -84q-35 41 -83 116.5t-80 137.5q-87 169 -87 296q0 104 73 177t177 73t177 -73zM265 362q55 0 95.5 40t40.5 96q0 55 -40 94.5t-96 39.5q-55 0 -94.5 -39t-39.5 -95t39.5 -96t94.5 -40z" />
+    <glyph glyph-name="u1F504" unicode="&#x1f504;" horiz-adv-x="850" 
+d="M317 256v-292l-276 16l88 86q-116 122 -114 290q1 168 120 288q99 99 240 116l4 -102q-101 -16 -172 -88q-89 -88 -90 -213q-2 -125 84 -217zM533 738l276 -16l-88 -86q116 -122 114 -290q-1 -168 -120 -288q-97 -99 -240 -118l-2 104q99 17 170 88q89 88 90 213
+q2 125 -84 217l-114 -116z" />
+    <glyph glyph-name="u1F554" unicode="&#x1f554;" horiz-adv-x="950" 
+d="M800 675q135 -135 135 -325t-135 -325t-325 -135t-325 135t-135 325t135 325t325 135t325 -135zM730 96q105 106 105 254q0 150 -105 255t-255 105q-147 0 -254 -105q-106 -105 -106 -255q0 -148 106 -254t254 -106q150 0 255 106zM511 610v-244l150 -150l-50 -50
+l-170 170v274h70z" />
+  </font>
+</defs></svg>
