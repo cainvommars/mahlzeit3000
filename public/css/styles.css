@@ -160,7 +160,10 @@ ul {
   border: 1px solid transparent;
   text-align: center;
   font-size: 30px;
-  transition: all 0.2s ease-out;
+  -webkit-transition: all 0.3s ease-out;  /* Safari 3.2+, Chrome */
+     -moz-transition: all 0.3s ease-out;  /* Firefox 4-15 */
+       -o-transition: all 0.3s ease-out;  /* Opera 10.5–12.00 */
+          transition: all 0.3s ease-out; 
   opacity: .7;
 }
 
