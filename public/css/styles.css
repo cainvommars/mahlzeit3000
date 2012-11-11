@@ -9,6 +9,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
   font-family: 'mahlzeiticons';
@@ -21,22 +22,46 @@
   margin-right: 0.2em;
   text-align: center;
   opacity: 0.7;
-/* Uncomment for 3D effect */
-/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
-/* fix buttons height */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  /* fix buttons height */
   line-height: 1em;
-/* you can be more comfortable with increased icons size */
-/* font-size: 120%; */
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
 }
-
-.icon-user-add:before { content: '\e700'; } /* '' */
-.icon-location:before { content: '\e724'; } /* '' */
-.icon-arrows-ccw:before { content: '🔄'; } /* '\1f504' */
-.icon-clock:before { content: '🕔'; } /* '\1f554' */
 
 .icon-user-add:before, .icon-location:before, .icon-arrows-ccw:before, .icon-clock:before {
-  color: #C57B7A;font-size: 25px;left: 4px;position: absolute;top: 10px;
+  color: #C57B7A;
+  font-size: 25px;
+  left: 4px;
+  position: absolute;
+  bottom: 3px;
 }
+
+.icon-user-add:before {
+  content: '\e700';
+}
+
+/* '' */
+.icon-location:before {
+  content: '\e724';
+}
+
+/* '' */
+.icon-arrows-ccw:before {
+  content: '🔄';
+}
+
+/* '\1f504' */
+.icon-clock:before {
+  content: '🕔';
+  bottom: 10px;
+}
+
+/* '\1f554' */
+
+
+
 /* global css code from here */
 body {
   font-family: 'Enriqueta', serif;
@@ -46,7 +71,7 @@ body {
   background-image: -webkit-linear-gradient(0deg, rgba(200, 0, 0, .3) 50%, transparent 50%), -webkit-linear-gradient(rgba(200, 0, 0, .3) 50%, transparent 50%);
   background-image: -moz-linear-gradient(0deg, rgba(200, 0, 0, 0.3) 50%, transparent 50%), -moz-linear-gradient(to bottom, rgba(200, 0, 0, 0.3) 50%, transparent 50%);
   background-image: -o-linear-gradient(0deg, rgba(200, 0, 0, 0.3) 50%, transparent 50%), -o-linear-gradient(to bottom, rgba(200, 0, 0, 0.3) 50%, transparent 50%);
-  background-image: linear-gradient(90deg, rgba(200,0,0,.3) 50%, transparent 50%), linear-gradient(rgba(200,0,0,.3) 50%, transparent 50%);
+  background-image: linear-gradient(90deg, rgba(200, 0, 0, .3) 50%, transparent 50%), linear-gradient(rgba(200, 0, 0, .3) 50%, transparent 50%);
   background-size: 50px 50px;
   margin: 0;
   color: #5C5A5A;
@@ -61,7 +86,7 @@ body >* {
 }
 
 header {
-  background: url('/img/icon.png') no-repeat ;
+  background: url('/img/icon.png') no-repeat;
   background-size: 33px;
   padding: 0 40px;
   height: 40px;
@@ -83,10 +108,10 @@ ul {
   margin: 5px;
   padding: 5px;
   background: #f4eae0;
-  -webkit-box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
-  -moz-box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
-  -o-box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
-  box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .row {
@@ -136,7 +161,7 @@ ul {
   margin-top: -14px;
 }
 
-.time .active i{
+.time .active i {
   font-size: 18px;
   top: -12px;
 }
@@ -174,7 +199,6 @@ input {
   padding-bottom: 0;
 }
 
-
 i {
   font-size: 12px;
   font-style: normal;
@@ -196,6 +220,7 @@ i {
 .user-list li:last-child {
   border: none;
 }
+
 .user-list img {
   width: 30px;
   height: 30px;
@@ -276,11 +301,11 @@ footer a {
 }
 
 .withIcon {
-  padding-left: 30px;
+  padding-left: 35px;
   position: relative;
 }
 
-.viewerImg{
+.viewerImg {
   position: absolute;
   top: 10px;
   right: 10px;;
@@ -293,7 +318,7 @@ footer a {
   position: relative;
 }
 
-.select ul{
+.select ul {
   position: absolute;
   right: 0;
   width: 280px;
