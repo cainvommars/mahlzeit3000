@@ -105,24 +105,12 @@ ul {
   display: block;
 }
 
-.time:first-child li {
-  text-align: center;
-  margin-left: 40px;
-  font-size: 30px;
-}
-
 .time li:first-child {
   margin-left: 100px;
 }
 
 .time li:last-child {
   padding-right: 160px;
-}
-
-.time:not(:first-child) {
-  padding: 10px 5px;
-  margin-top: 10px;
-  margin-left: 30px;
 }
 
 .time {
@@ -138,6 +126,8 @@ ul {
   padding: 0 5px;
   text-align: center;
   border: 1px solid transparent;
+  text-align: center;
+  font-size: 30px;
 }
 
 .time .active {
