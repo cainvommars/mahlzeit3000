@@ -357,3 +357,8 @@ footer a {
   width: 280px;
   z-index: 2;
 }
+
+button:hover {
+  cursor: pointer;
+}
+
