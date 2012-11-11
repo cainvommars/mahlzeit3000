@@ -1,6 +1,6 @@
 var express = require('express'),
-routes = require('./routes'),
-db = require('./lib/db');
+routes = require('./lib/routes'),
+leveldb = require('leveldb');
 
 var app = express();
 
@@ -26,7 +26,10 @@ app.configure('production', function() {
   app.use(express.errorHandler());
 });
 
-db.start('var/data', function(err, db) {
+leveldb.open('var/data',
+             {create_if_missing: true},
+             function(err, db)
+{
   var handlers = routes(db);
 
   app.get('/', handlers.index);
@@ -36,9 +39,11 @@ db.start('var/data', function(err, db) {
   app.get('/logout', handlers.logout);
   app.get('/event/:id?/:hash?', handlers.event);
   app.post('/event', handlers.create_event);
-  app.post('/event/:id?/join/:hash?', handlers.join_event);
+  app.get('/event/:id?/join/:hash?', handlers.join_event);
+  app.post('/event/:id?/join/:hash?', handlers.do_join_event);
 
   app.listen(3000);
+
+  console.log('Server running at ' + process.env.HOST);
 });
 
-console.log('Server running at ' + process.env.HOST);
