@@ -304,6 +304,7 @@ footer li {
   display: inline;
   padding: 3px;
   font-size: 15px;
+  vertical-align: top;
 }
 
 footer a {
