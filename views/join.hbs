@@ -1,14 +1,15 @@
 <img src="{{viewer.image}}" class="viewerImg"/>
-<p>Hello {{viewer.screen_name}}, your friend {{event.owner.screen_name}} wants to have a lunch today at
-  <time>{{event.time}}</time>
-  .
-</p>
+<p>{{event.owner.name}} (<a target="_blank" href="http://twitter.com/{{event.owner.screen_name}}">@{{event.owner.screen_name}}</a>) invites to {{event.title}} at {{event.time}}</p>
 <p>Are you in?</p>
 <h1>{{event.title}}</h1>
 {{#unless viewer.join}}
 <div class="ready row">
-    <button class="join_decline content" data-action="decline" data-event-id="{{event.id}}" data-viewer-id="{{viewer.hash}}">Decline</button>
-    <button class="join_decline content" data-action="join" data-event-id="{{event.id}}" data-viewer-id="{{viewer.hash}}">Join</button>
+  <button class="join_decline content" data-action="decline" data-event-id="{{event.id}}"
+          data-viewer-id="{{viewer.hash}}">Decline
+  </button>
+  <button class="join_decline content" data-action="join" data-event-id="{{event.id}}" data-viewer-id="{{viewer.hash}}">
+    Join
+  </button>
 </div>
 {{/unless}}
 
@@ -17,7 +18,8 @@ Also invited:
   {{#each event.users}}
   <li class="{{status}} {{isViewer}}">
     <img src="{{image}}"/>
-    <p>{{name}}<span>{{screen_name}}</span></p>
+
+    <p><span>{{name}}</span>@{{screen_name}}</p>
   </li>
   {{/each}}
 </ul>
