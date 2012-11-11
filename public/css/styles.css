@@ -212,6 +212,10 @@ input {
   padding-bottom: 0;
 }
 
+input:focus{
+  outline: none;
+}
+
 i {
   font-size: 13px;
   font-style: normal;
