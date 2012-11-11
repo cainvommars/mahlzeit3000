@@ -60,8 +60,6 @@
 
 /* '\1f554' */
 
-
-
 /* global css code from here */
 body {
   font-family: 'Enriqueta', serif;
@@ -119,6 +117,7 @@ ul {
   display: -moz-box;
   display: -ms-box;
   display: box;
+  width: 100%;
 }
 
 .content {
@@ -200,10 +199,11 @@ input {
 }
 
 i {
-  font-size: 12px;
+  font-size: 13px;
   font-style: normal;
   position: relative;
-  top: -6px;
+  top: -12px;
+  left: 1px;
 }
 
 .user-list {
