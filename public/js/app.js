@@ -84,7 +84,7 @@ $(function() {
     var slider = $('.time').get(0);
 
     if (!position) {
-      position = (parseInt((slider.scrollLeft) / itemWidth));
+      position = (parseInt( (30 +slider.scrollLeft) / itemWidth));
     } else {
       slider.scrollLeft = position * itemWidth;
     }
