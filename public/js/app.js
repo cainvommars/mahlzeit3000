@@ -15,7 +15,8 @@ $(function() {
     addToInvite(target.id)
   });
 
-  $('#invites button').on('click', function(e) {
+  $('#invites').on('click', 'button', function(e) {
+    console.log(e);
     var target = $(e.target);
     var id = target.data('id');
     target.parent().remove();
@@ -70,10 +71,10 @@ $(function() {
   function search(value) {
     var regExp = new RegExp(value + '.*', 'i');
     var result = users.filter(function(user) {
-      return regExp.test(user.name);
+      return regExp.test(user.name) || regExp.test(user.screen_name);
     })
       .map(function(user) {
-        return '<li id="' + user.id + '">' + user.name + '</li>';
+        return '<li id="' + user.id + '">' + user.name + '<i>' + user.screen_name + '</i></li>';
       });
     $('#result').html(result.join(''))
   }
