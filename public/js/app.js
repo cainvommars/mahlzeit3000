@@ -64,16 +64,16 @@ $(function() {
       data: {
         users: invites,
         time: inviteTime,
-        title: $('#title').val()
+        title: $('#title').val() || 'Lunch'
       }
     }).done(function(response) {
         window.location.href = 'event/' + response.id;
       });
   });
 
-  $('#reset').on('click', function(){
+  $('#reset').on('click', function() {
     setTime(4);
-    invites=[];
+    invites = [];
     $('#invites').empty()
   });
   var inviteTime;
@@ -84,7 +84,7 @@ $(function() {
     var slider = $('.time').get(0);
 
     if (!position) {
-      position = (parseInt( (30 +slider.scrollLeft) / itemWidth));
+      position = (parseInt((30 + slider.scrollLeft) / itemWidth));
     } else {
       slider.scrollLeft = position * itemWidth;
     }
