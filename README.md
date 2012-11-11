@@ -20,6 +20,11 @@ Mahlzeit is a twitter based tool to invite your friends to a lunch date
 
 ##Technical stuff
 
+* This is a project build for nodeknockout so obiously: the software is build in node.js
+* We used express as app framework
+* Ui is tested in modern browsers, also on mobile.
+
+##User workflow
 * Fetching all followers when the user logs in for teh first time.
 * Create an event in level DB
 * send invites via twitter DM with personalized links to the event
@@ -29,3 +34,4 @@ Mahlzeit is a twitter based tool to invite your friends to a lunch date
 
 * notify the owner of an event who has accept decline
 * indicate wrong user input
+* ie
