@@ -3,9 +3,8 @@
 <script>
   var users = {{{users}}};
 </script>
-<img src="{{image}}"/>
 <div class="title withIcon icon-location">
-  <input id="title" placeholder="Wo?"/>
+  <input id="title" placeholder="What & Where"/>
 </div>
 
 <div class="time withIcon icon-clock">
@@ -28,17 +27,19 @@
     <li>14:<i>45</i></li>
   </ul>
 </div>
-<ul id="invites" class="row invites"></ul>
+
+<ul id="invites" class="row user-list"></ul>
+
 <div class="who withIcon icon-user-add">
-  <input placeholder="Wer?" id="search" autocomplete="off">
+  <input placeholder="Search for friends" id="search" autocomplete="off">
 </div>
 <div class="select">
   <ul id="result" class="friends-list"></ul>
 </div>
 
 <div class="ready row">
-  <button class="content" id="reset">Abrechen</button>
-  <button class="content" id="invite">Omnomnom</button>
+  <button class="content" id="reset">Cancel</button>
+  <button class="content" id="invite">Invite</button>
 </div>
 
 <script src="/js/app.js"></script>
