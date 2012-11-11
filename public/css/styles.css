@@ -187,7 +187,6 @@ i {
 }
 
 .user-list li {
-  display: block;
   overflow: hidden;
   position: relative;
   border-bottom: 1px solid #D0cad0;
@@ -198,7 +197,6 @@ i {
   border: none;
 }
 .user-list img {
-  float: left;
   width: 30px;
   height: 30px;
   border-radius: 3px;

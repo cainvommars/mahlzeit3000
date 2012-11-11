@@ -12,7 +12,7 @@ $(function() {
           .attr('disabled', false);
       }
     });
-  } 
+  }
 
   var invites = [];
   setTime(4);
@@ -114,7 +114,7 @@ $(function() {
     selectedUser = remove(users, id);
     invites.push(selectedUser);
     $('#search').val('');
-    $('#invites').append('<li><img src="' + selectedUser.image + '"><p><span>' + selectedUser.name + '</span>' + selectedUser.screen_name + '</p><button data-id="' + selectedUser.id + '"></button></li>')
+    $('#invites').append('<li class="row"><img src="' + selectedUser.image + '"><p><span>' + selectedUser.name + '</span>' + selectedUser.screen_name + '</p><button data-id="' + selectedUser.id + '"></button></li>')
   }
 
   function remove(array, id) {
