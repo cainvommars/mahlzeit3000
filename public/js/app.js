@@ -114,7 +114,7 @@ $(function() {
     selectedUser = remove(users, id);
     invites.push(selectedUser);
     $('#search').val('');
-    $('#invites').append('<li class="row"><div><img src="' + selectedUser.image + '"></div><p class="content"><span>' + selectedUser.name + '</span>@' + selectedUser.screen_name + '</p><button data-id="' + selectedUser.id + '"></button></li>')
+    $('#invites').append('<li class="row"><div><img src="' + selectedUser.image + '"></div><p class="content"><span>' + selectedUser.name + '</span>@' + selectedUser.screen_name + '</p><button class="icon-cancel-circled" data-id="' + selectedUser.id + '"></button></li>')
   }
 
   function remove(array, id) {
