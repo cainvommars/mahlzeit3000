@@ -1,22 +1,15 @@
 {{#if msg}}
-<h2>{{msg}}</h2>
+<p>{{msg}}</p>
 {{/if}}
 
-<h1>{{event.title}}</h1>
-<p>
-  <div><img src="{{event.owner.image}}"/></div>
-  <p>{{event.owner.name}}<span>{{event.owner.screen_name}}</span></p>
-</p>
-<p>
-  Lunchdate at <time>{{event.time}}</time>.
-</p>
+<p>{{event.owner.name}} (<a target="_blank" href="http://twitter.com/{{event.owner.screen_name}}">@{{event.owner.screen_name}}</a>) invites to {{event.title}} at {{event.time}}</p>
 
 Audience:
 <ul class="user-list">
   {{#each event.users}}
-  <li class="{{status}}">
+  <li class="{{status}} row">
     <div><img src="{{image}}"/></div>
-    <p>{{name}}<span>{{screen_name}}</span></p>
+    <p class="content"><span>{{name}}</span>@{{screen_name}}</p>
   </li>
   {{/each}}
 </ul>

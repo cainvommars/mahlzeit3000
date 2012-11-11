@@ -38,6 +38,10 @@
   bottom: 3px;
 }
 
+a {
+  color: #5C5A5A;
+}
+
 .icon-user-add:before {
   content: '\e700';
 }
@@ -55,7 +59,7 @@
 /* '\1f504' */
 .icon-clock:before {
   content: '🕔';
-  bottom: 10px;
+  bottom: 16px;
 }
 
 /* '\1f554' */
@@ -82,7 +86,6 @@ body {
 header {
   background: url('/img/icon.png') no-repeat;
   background-size: 33px;
-  padding: 0 40px;
   height: 40px;
   font-size: 23px;
   font-weight: bold;
@@ -91,6 +94,7 @@ header {
 
 header a {
   display: block;
+  padding: 0 40px;
   text-decoration: none;
 }
 
@@ -103,14 +107,13 @@ ul {
 
 .event-area {
   position: relative;
-  margin: 5px;
   padding: 5px;
   background: #f4eae0;
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   -o-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-  margin: 0 auto;
+  margin: 5px auto;
   width: 320px;
 }
 
@@ -157,13 +160,18 @@ ul {
   border: 1px solid transparent;
   text-align: center;
   font-size: 30px;
-  transition: all 0.2s ease-out;
+  -webkit-transition: all 0.3s ease-out;  /* Safari 3.2+, Chrome */
+     -moz-transition: all 0.3s ease-out;  /* Firefox 4-15 */
+       -o-transition: all 0.3s ease-out;  /* Opera 10.5–12.00 */
+          transition: all 0.3s ease-out; 
+  opacity: .7;
 }
 
 .time .active {
-  font-size: 35px;
+  font-size: 42px;
   font-weight: bold;
-  margin-top: -14px;
+  margin-top: -10px;
+  opacity: 1;
 }
 
 .time .active i {
@@ -220,7 +228,6 @@ i {
 .select i {
   display: block;
 }
-
 
 .user-list {
   display: block;
@@ -289,8 +296,9 @@ i {
   background-repeat: no-repeat;
   background-position: right center;
 }
-.friends-list p{
-    margin: 0;
+
+.friends-list p {
+  margin: 0;
 }
 
 .friends-list li:last-child {
@@ -301,10 +309,12 @@ footer {
   margin: 0 auto;
   width: 320px;
 }
+
 footer li {
   display: inline;
   padding: 3px;
   font-size: 15px;
+  vertical-align: top;
 }
 
 footer a {
