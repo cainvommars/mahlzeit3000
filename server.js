@@ -33,6 +33,9 @@ leveldb.open('var/data',
   var handlers = routes(db);
 
   app.get('/', handlers.index);
+  app.get('/help', handlers.help);
+  app.get('/team', handlers.team);
+  app.get('/engine', handlers.engine);
   app.get('/login', handlers.login);
   app.get('/auth/twitter', handlers.auth.twitter);
   app.get('/auth/twitter/callback', handlers.auth.twitter_callback);
@@ -42,6 +45,7 @@ leveldb.open('var/data',
   app.get('/event/:id?/join/:hash?', handlers.join_event);
   app.post('/event/:id?/join/:hash?', handlers.do_join_event);
   app.get('/followers', handlers.get_followers);
+
 
   app.listen(3000);
 
