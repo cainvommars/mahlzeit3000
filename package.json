@@ -1,6 +1,6 @@
 {
   "name": "nko3-backensolo",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Backensolo",
   "main": "server.js",
   "scripts": {
