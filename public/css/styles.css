@@ -20,9 +20,15 @@ body >* {
   width: 320px;
 }
 
-.logo {
+header {
+  background: url('/img/icon.png') no-repeat ;
+  background-size: 33px;
+  padding: 0 40px;
   height: 40px;
-  width: 40px;
+  font-size: 23px;
+  font-weight: bold;
+  text-align: center;
+
 }
 
 ul {
@@ -76,6 +82,7 @@ ul {
 .time:not(:first-child) {
   padding: 10px 5px;
   margin-top: 10px;
+  margin-left: 30px;
 }
 
 .time {
