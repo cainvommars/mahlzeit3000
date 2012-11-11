@@ -201,11 +201,19 @@ input {
 i {
   font-size: 13px;
   font-style: normal;
+}
+
+.time i {
+  font-size: 13px;
+  font-style: normal;
   position: relative;
   top: -12px;
   left: 1px;
 }
 
+.select i {
+  float: right;
+}
 .user-list {
   display: block;
 }
