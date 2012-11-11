@@ -70,6 +70,12 @@ $(function() {
         window.location.href = 'event/' + response.id + '/' + response.owner.hash;
       });
   });
+
+  $('#reset').on('click', function(){
+    setTime(4);
+    invites=[];
+    $('#invites').empty()
+  });
   var inviteTime;
 
   function setTime(position) {
