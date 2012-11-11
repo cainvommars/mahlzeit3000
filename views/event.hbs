@@ -6,14 +6,19 @@
 <p>Are you in?</p>
 <h1>{{event.title}}</h1>
 {{#unless viewer.join}}
-<button id="join" data-event-id="{{event.id}}" data-viewer-id="{{viewer.hash}}">Join</button>
+<div class="ready row">
+
+  <button id="cancel" class="content" data-event-id="{{event.id}}" data-viewer-id="{{viewer.hash}}">Decline</button>
+  <button id="join" class="content" data-event-id="{{event.id}}" data-viewer-id="{{viewer.hash}}">Join</button>
+</div>
 {{/unless}}
 
-Also invited:
+<p>Also invited:</p>
 <ul class="user-list">
   {{#each event.users}}
-  <li class="{{status}} {{isViewer}}">
+  <li class="{{status}} {{isViewer}} row">
     <img src="{{image}}"/>
+
     <p>{{name}}<span>{{screen_name}}</span></p>
   </li>
   {{/each}}
