@@ -46,24 +46,22 @@ a {
   content: '\e700';
 }
 
-/* '' */
 .icon-location:before {
   content: '\e724';
 }
 
-/* '' */
 .icon-arrows-ccw:before {
   content: '🔄';
 }
 
-/* '\1f504' */
 .icon-clock:before {
   content: '🕔';
-  bottom: 16px;
+  top: 18px;
 }
 
-/* '\1f554' */
 
+.icon-twitter:before { content: '\f309'; 
+color: #00aced;} /* '' */
 /* global css code from here */
 body {
   font-family: 'Enriqueta', serif;
@@ -107,14 +105,14 @@ ul {
 
 .event-area {
   position: relative;
-  padding: 5px;
+  padding: 10px;
   background: #f4eae0;
-  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-  -o-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-  margin: 5px auto;
-  width: 320px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  margin: 10px auto;
+  width: 310px;
 }
 
 .row {
@@ -137,6 +135,16 @@ ul {
   white-space: nowrap;
 }
 
+.login a{
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-family: 'Enriqueta', serif;
+  font-size: 20px;
+  padding: 10px 5px;
+  color: #5C5A5A;
+  width: 100%;
+}
 .time li:first-child {
   margin-left: 100px;
 }
@@ -346,8 +354,8 @@ footer a {
 
 .viewerImg {
   position: absolute;
-  top: 10px;
-  right: 10px;;
+  top: 7px;
+  right: 7px;;
   width: 30px;
   height: 30px;
   border-radius: 3px;
