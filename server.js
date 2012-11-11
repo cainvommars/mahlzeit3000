@@ -44,7 +44,7 @@ leveldb.open('var/data',
   app.post('/event', handlers.create_event);
   app.get('/event/:id?/join/:hash?', handlers.join_event);
 
-  app.post('/event/:id?/join/:hash?', 
+  app.post('/event/:id?/join/:hash?',
            function(req, res) {handlers.do_join_event(req,res,true)});
 
   app.delete('/event/:id?/join/:hash?',
@@ -55,6 +55,5 @@ leveldb.open('var/data',
 
   app.listen(3000);
 
-  console.log('Server running at ' + process.env.HOST);
 });
 
