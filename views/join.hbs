@@ -12,7 +12,7 @@
   </button>
 </div>
 {{/unless}}
-
+{{#if event.users.length}}
 Also invited:
 <ul class="user-list">
   {{#each event.users}}
@@ -23,4 +23,5 @@ Also invited:
   </li>
   {{/each}}
 </ul>
+{{/if}}
 <script src="/js/join.js"></script>
