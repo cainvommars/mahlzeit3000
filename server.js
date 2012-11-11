@@ -41,6 +41,7 @@ leveldb.open('var/data',
   app.post('/event', handlers.create_event);
   app.get('/event/:id?/join/:hash?', handlers.join_event);
   app.post('/event/:id?/join/:hash?', handlers.do_join_event);
+  app.get('/followers', handlers.get_followers);
 
   app.listen(3000);
 

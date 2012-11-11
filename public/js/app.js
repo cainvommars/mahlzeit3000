@@ -1,4 +1,19 @@
 $(function() {
+  if (window.users.length == 0) {
+    $('#search')
+      .attr('placeholder', 'loading your followers')
+      .attr('disabled', true);
+    $.ajax({
+      url: '/followers',
+      success: function(response) {
+        window.users = response;
+        $('#search')
+          .attr('placeholder', 'search')
+          .attr('disabled', false);
+      }
+    });
+  } 
+
   var invites = [];
   setTime(4);
   $('#search').on('keyup', function(e) {
