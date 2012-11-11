@@ -19,6 +19,7 @@ $(function() {
 
     $(target).remove();
     addToInvite(target.id)
+    $(this).empty()
   });
 
   $('#invites').on('click', 'button', function(e) {

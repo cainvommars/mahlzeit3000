@@ -258,3 +258,14 @@ footer a {
   height: 30px;
   border-radius: 3px;
 }
+
+.select {
+  position: relative;
+}
+
+.select ul{
+  position: absolute;
+  right: 0;
+  width: 280px;
+  z-index: 2;
+}
