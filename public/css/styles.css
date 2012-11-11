@@ -89,6 +89,11 @@ header {
   text-align: center;
 }
 
+header a {
+  display: block;
+  text-decoration: none;
+}
+
 ul {
   list-style: none;
   padding: 0;
