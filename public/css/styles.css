@@ -89,6 +89,11 @@ header {
   text-align: center;
 }
 
+header a {
+  display: block;
+  text-decoration: none;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -123,6 +128,9 @@ ul {
   -ms-box-flex: 1;
   box-flex: 1;
   display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .time li:first-child {
@@ -209,8 +217,10 @@ i {
 }
 
 .select i {
-  float: right;
+  display: block;
 }
+
+
 .user-list {
   display: block;
 }
@@ -277,6 +287,9 @@ i {
   background-image: linear-gradient(to bottom, #fffeec, #f3efe6); /* Firefox 16+, IE10, Opera 12.50+ */
   background-repeat: no-repeat;
   background-position: right center;
+}
+.friends-list p{
+    margin: 0;
 }
 
 .friends-list li:last-child {
